@@ -1,0 +1,9 @@
+{
+  "title": "OccupancySensorHallway",
+  "description": "Occupancy sensor for the Hallway",
+  "eventTopic": "occupancy",
+  "data": {
+    "type": "boolean",
+    "title": "Occupancy"
+  }
+}

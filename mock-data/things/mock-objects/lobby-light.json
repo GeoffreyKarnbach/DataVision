@@ -1,0 +1,11 @@
+{
+  "title": "LobbyLightSensor",
+  "description": "Light sensor for the Lobby",
+  "eventTopic": "light",
+  "data": {
+    "type": "number",
+    "title": "Light Intensity",
+    "minimum": 0,
+    "maximum": 1000
+  }
+}

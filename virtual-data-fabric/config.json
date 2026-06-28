@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "neo4jUrl": "bolt://localhost:7687",
+    "neo4jUser": "neo4j",
+    "neo4jPassword": "password"
+  },
+  "prod": {
+    "neo4jUrl": "bolt://neo4j_:7687",
+    "neo4jUser": "neo4j",
+    "neo4jPassword": "password"
+  }
+}

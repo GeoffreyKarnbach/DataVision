@@ -1,0 +1,331 @@
+<style>
+  .hero-section {
+    background: linear-gradient(
+      135deg,
+      rgba(240, 245, 255, 0.7),
+      rgba(255, 255, 255, 1) 70%
+    );
+  }
+
+  .feature-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--bs-primary);
+    background-color: var(--bs-primary-bg-subtle);
+    border: 1px solid var(--bs-primary-border-subtle);
+    border-radius: 0.75rem;
+  }
+  .feature-link {
+    text-decoration: none;
+    color: var(--bs-primary);
+  }
+  .feature-link .bi {
+    transition: transform 0.2s ease;
+  }
+  .feature-link:hover .bi {
+    transform: translateX(5px);
+  }
+
+  .concept-card {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--bs-border-color-translucent);
+  }
+  .concept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--bs-box-shadow-lg) !important;
+    border-color: var(--bs-primary);
+  }
+  .concept-card-icon {
+    font-size: 1.75rem;
+    color: var(--bs-primary);
+  }
+
+  .tech-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--bs-border-color-translucent);
+    background-color: var(--bs-white);
+    transition: all 0.3s ease-in-out;
+  }
+  .tech-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--bs-box-shadow-sm) !important;
+  }
+  .tech-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 1rem;
+  }
+  .tech-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+</style>
+
+<div class="hero-section">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img
+          src="/assets/logo.png"
+          class="d-block mx-lg-auto img-fluid"
+          alt="App Logo"
+          width="500"
+          height="500"
+          loading="lazy"
+        />
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold lh-1 mb-4">
+          The Unified Namespace for Modern IoT
+        </h1>
+        <p class="lead mb-4">
+          Transform raw, chaotic sensor data into a structured, queryable, and
+          real-time knowledge graph. Design, deploy, and visualize your entire
+          data pipeline with a single, intuitive platform.
+        </p>
+        <div class="mt-4 pt-2">
+          <div class="d-grid mb-3">
+            <a
+              routerLink="/things-list"
+              class="btn btn-primary btn-lg px-4 d-flex align-items-center justify-content-center"
+            >
+              <i class="bi bi-rocket-launch-fill me-2"></i>Get Started
+            </a>
+          </div>
+
+          <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            <a
+              href="https://datavision-ai.github.io/Documentation/#/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline-secondary btn-lg px-4 d-flex align-items-center justify-content-center w-100"
+            >
+              <i class="bi bi-book-half me-2"></i>View Docs
+            </a>
+            <a
+              href="https://github.com/DataVision-AI/system-design"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline-secondary btn-lg px-4 d-flex align-items-center justify-content-center w-100"
+            >
+              <i class="bi bi-github me-2"></i>View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container px-4 py-5">
+  <div class="py-5" id="how-it-works">
+    <h2 class="display-6 fw-bold text-center mb-3">
+      A Simple, Powerful Workflow
+    </h2>
+    <p class="lead text-center text-muted mb-5">
+      From raw data to actionable insights in four logical steps.
+    </p>
+
+    <div class="row g-4 py-5 row-cols-1 row-cols-md-2 row-cols-lg-4">
+      <div class="feature col">
+        <div class="feature-icon-wrapper"><i class="bi bi-list-ul"></i></div>
+        <h3 class="fs-4 fw-semibold mb-2">1. Register Things</h3>
+        <p>
+          Start by registering your raw data sources. Explicitly define each
+          "Thing" and its MQTT topic to build a master list of all available
+          data streams.
+        </p>
+      </div>
+
+      <div class="feature col">
+        <div class="feature-icon-wrapper">
+          <i class="bi bi-diagram-2-fill"></i>
+        </div>
+        <h3 class="fs-4 fw-semibold mb-2">2. Model Environment</h3>
+        <p>
+          Visually construct a hierarchical model of your physical space. Create
+          buildings, floors, and rooms, then assign Things to give them rich
+          contextual meaning.
+        </p>
+      </div>
+
+      <div class="feature col">
+        <div class="feature-icon-wrapper">
+          <i class="bi bi-play-circle-fill"></i>
+        </div>
+        <h3 class="fs-4 fw-semibold mb-2">3. Deploy Pipeline</h3>
+        <p>
+          With one click, compile your model into an executable data pipeline.
+          This automatically generates Node-RED flows and deploys the Virtual
+          Data Fabric runtime.
+        </p>
+      </div>
+
+      <div class="feature col">
+        <div class="feature-icon-wrapper">
+          <i class="bi bi-graph-up-arrow"></i>
+        </div>
+        <h3 class="fs-4 fw-semibold mb-2">4. Visualize & Interact</h3>
+        <p>
+          Explore your live system through an interactive knowledge graph. Click
+          any node to see real-time plots of the corresponding sensor data
+          instantly.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-light rounded-4 p-5 my-5">
+    <h2 class="display-6 fw-bold text-center mb-5">
+      A Foundation for Intelligence
+    </h2>
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm concept-card">
+          <div class="card-body p-4">
+            <div class="concept-card-icon mb-3">
+              <i class="bi bi-bounding-box-circles"></i>
+            </div>
+            <h5 class="card-title fw-bold">Unified Namespace</h5>
+            <p class="card-text text-muted">
+              The core principle. Data is transformed from cryptic topics into a
+              clean, human-readable hierarchy—a single source of truth for all
+              services.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm concept-card">
+          <div class="card-body p-4">
+            <div class="concept-card-icon mb-3">
+              <i class="bi bi-share-fill"></i>
+            </div>
+            <h5 class="card-title fw-bold">Living Knowledge Graph</h5>
+            <p class="card-text text-muted">
+              Your system's structure isn't just a diagram; it's a queryable
+              Neo4j graph database, providing the backbone for powerful
+              relational queries and a rich UI.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm concept-card">
+          <div class="card-body p-4">
+            <div class="concept-card-icon mb-3">
+              <i class="bi bi-hdd-stack-fill"></i>
+            </div>
+            <h5 class="card-title fw-bold">Extensible Service Ecosystem</h5>
+            <p class="card-text text-muted">
+              A modular microservices approach. Specialized backends for
+              plotting and graph queries decouple the UI from data sources,
+              making the system easy to extend.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-5">
+    <h2 class="display-6 fw-bold text-center mb-5">
+      Powered by Industry-Standard Technologies
+    </h2>
+    <div
+      class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 justify-content-center"
+    >
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://angular.io/assets/images/logos/angular/angular.svg"
+            alt="Angular Logo"
+          /><span class="tech-name">Angular</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://nodered.org/about/resources/media/node-red-icon-2.svg"
+            alt="Node-RED Logo"
+          /><span class="tech-name">Node-RED</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/4/neo4j-scjhzfu70ksd2paadypqr.png/neo4j-do4n8gc78dqpmorqrg1qt8.png?_a=DATAdtAAZAA0"
+            alt="Neo4j Logo"
+          /><span class="tech-name">Neo4j</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg"
+            alt="Prometheus Logo"
+          /><span class="tech-name">Prometheus</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Grafana_logo.svg"
+            alt="Grafana Logo"
+          /><span class="tech-name">Grafana</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://www.hivemq.com/sb-assets/f/243938/3334x3334/6bd7143c21/03-hivemq-vert.png"
+            alt="HiveMQ Logo"
+          /><span class="tech-name">HiveMQ</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://www.docker.com/app/uploads/2023/08/logo-guide-logos-1.svg"
+            alt="Docker Logo"
+          /><span class="tech-name">Docker</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
+            alt="Bootstrap Logo"
+          /><span class="tech-name">Bootstrap</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="tech-card shadow-sm">
+          <img
+            class="tech-icon"
+            src="https://www.chartjs.org/favicon.ico"
+            alt="Chart.js Logo"
+          /><span class="tech-name">Chart.js</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

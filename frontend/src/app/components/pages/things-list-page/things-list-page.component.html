@@ -1,0 +1,60 @@
+<div class="container py-4">
+  <h2 class="mb-4">Manage Things</h2>
+
+  <div class="card mb-4 p-3 shadow-sm">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="TD Link"
+          [(ngModel)]="tdLink"
+        />
+      </div>
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Topic Name"
+          [(ngModel)]="topicName"
+        />
+      </div>
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="HiveMQ URL"
+          [(ngModel)]="hiveMQUrl"
+        />
+      </div>
+      <div class="d-grid">
+        <button class="btn btn-primary" (click)="addThing()">Add Thing</button>
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-group" *ngIf="!isLoading && things.length > 0">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let thing of things"
+    >
+      <div>
+        <a href="{{ thing.tdLink }}" target="_blank">
+          <span>{{ thing.tdLink }}</span>
+        </a>
+        <br />
+        {{ thing.topicName }}
+      </div>
+      <button
+        class="btn btn-outline-danger btn-sm"
+        (click)="removeThing(thing)"
+      >
+        Delete
+      </button>
+    </li>
+  </ul>
+
+  <p *ngIf="!isLoading && things.length === 0" class="text-muted">
+    No things added yet.
+  </p>
+</div>

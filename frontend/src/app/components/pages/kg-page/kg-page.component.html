@@ -1,0 +1,60 @@
+<div
+  class="container"
+  style="height: 90vh; display: flex; flex-direction: column; margin-top: 1em"
+>
+  <h2>Knowledge Graph</h2>
+  <br />
+  <ng-container *ngIf="!graphIsReady && !loading">
+    <div
+      class="alert alert-warning d-flex align-items-center gap-2"
+      role="alert"
+    >
+      <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+      <div>
+        The Neo4J instance has not been generated yet, please generate it using
+        the
+        <a href="/virtual-data-fabric">"Virtual Data Fabric"</a>
+      </div>
+    </div>
+  </ng-container>
+
+  <div
+    *ngIf="graphIsReady && nodes && links"
+    class="d-flex flex-wrap flex-grow-1"
+    style="flex: 1 1 auto; height: 100%"
+  >
+    <div
+      style="flex: 0 0 60%; max-width: 60%; padding-right: 1rem; height: 100%"
+    >
+      <div class="graph-wrapper w-100 h-100">
+        <app-graph-view
+          [nodes]="nodes"
+          [links]="links"
+          (selectedNodeChange)="updatedSelectedNode($event)"
+        ></app-graph-view>
+      </div>
+    </div>
+
+    <div
+      style="
+        flex: 0 0 40%;
+        max-width: 40%;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      "
+    >
+      <div *ngIf="selectedNode" class="mb-3">
+        <app-graph-node-inspector
+          [selectedNode]="selectedNode"
+        ></app-graph-node-inspector>
+      </div>
+
+      <div style="flex-grow: 1; border: 1px dashed #ccc; background: #fafafa">
+        <app-live-data-plotter
+          [selectedNode]="selectedNode"
+        ></app-live-data-plotter>
+      </div>
+    </div>
+  </div>
+</div>

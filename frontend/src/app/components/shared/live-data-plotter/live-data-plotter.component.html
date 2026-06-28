@@ -1,0 +1,15 @@
+<div class="chart-container">
+  <canvas
+    *ngIf="lineChartData"
+    baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [type]="lineChartType"
+  >
+  </canvas>
+
+  <div *ngIf="!lineChartData" class="no-data-message">
+    <p *ngIf="selectedNode">Loading data for {{ selectedNode.label }}...</p>
+    <p *ngIf="!selectedNode">Please select a node to view its data.</p>
+  </div>
+</div>

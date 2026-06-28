@@ -1,0 +1,8 @@
+node_modules/
+.angular/
+dist/
+hivemq-data/
+mariadb-data/
+elasticsearch-data/
+node-red-data/
+.DS_Store

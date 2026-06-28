@@ -1,0 +1,42 @@
+<ng-container *ngIf="selectedNode as node">
+  <div class="card shadow-sm mt-3 mt-md-0">
+    <div class="card-header bg-primary text-white">Selected Node Details</div>
+    <div class="card-body">
+      <table class="table table-bordered table-sm">
+        <tbody>
+          <tr>
+            <th scope="row">ID</th>
+            <td>{{ selectedNode.id }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Type</th>
+            <td>{{ selectedNode.type }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Label</th>
+            <td>{{ selectedNode.label }}</td>
+          </tr>
+          <tr *ngIf="selectedNode.attributes?.length">
+            <th scope="row">Attributes</th>
+            <td>
+              <ul class="mb-0">
+                <li *ngFor="let attr of selectedNode.attributes">{{ attr }}</li>
+              </ul>
+            </td>
+          </tr>
+          <tr *ngIf="selectedNode.color">
+            <th scope="row">Color</th>
+            <td>
+              <span
+                class="badge"
+                [ngStyle]="{ backgroundColor: selectedNode.color }"
+              >
+                {{ selectedNode.color }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>

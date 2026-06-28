@@ -1,0 +1,154 @@
+{
+  "floors": [
+    {
+      "name": "Floor 1",
+      "rooms": [
+        {
+          "name": "Conference Room",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/humiditysensorconferenceroom",
+              "topicName": "HumiditySensorConferenceRoom/events/humidity"
+            },
+            {
+              "tdLink": "http://localhost:8081/temperaturesensorconferenceroom",
+              "topicName": "TemperatureSensorConferenceRoom/events/temperature"
+            }
+          ]
+        },
+        {
+          "name": "Lobby",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/lobbylightsensor",
+              "topicName": "LobbyLightSensor/events/light"
+            },
+            {
+              "tdLink": "http://localhost:8081/occupancysensorlobby",
+              "topicName": "OccupancySensorLobby/events/occupancy"
+            }
+          ]
+        },
+        {
+          "name": "Meeting Room 1",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/temperaturesensormeetingroom1",
+              "topicName": "TemperatureSensorMeetingRoom1/events/temperature"
+            },
+            {
+              "tdLink": "http://localhost:8081/temperaturesensor1",
+              "topicName": "TemperatureSensor1/events/temperature"
+            },
+            {
+              "tdLink": "http://localhost:8081/occupancysensormeetingroom1",
+              "topicName": "OccupancySensorMeetingRoom1/events/occupancy"
+            }
+          ]
+        },
+        {
+          "name": "Entrance",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/entrancedoorsensor",
+              "topicName": "EntranceDoorSensor/events/door"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Floor 2",
+      "rooms": [
+        {
+          "name": "Hallway",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/occupancysensorhallway",
+              "topicName": "OccupancySensorHallway/events/occupancy"
+            },
+            {
+              "tdLink": "http://localhost:8081/temperaturesensorhallway",
+              "topicName": "TemperatureSensorHallway/events/temperature"
+            }
+          ]
+        },
+        {
+          "name": "Room 2",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/occupancysensor2",
+              "topicName": "OccupancySensor2/events/occupancy"
+            },
+            {
+              "tdLink": "http://localhost:8081/humiditysensor2",
+              "topicName": "HumiditySensor2/events/humidity"
+            },
+            {
+              "tdLink": "http://localhost:8081/temperaturesensor2",
+              "topicName": "TemperatureSensor2/events/temperature"
+            }
+          ]
+        },
+        {
+          "name": "Room 3",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/temperaturesensor3",
+              "topicName": "TemperatureSensor3/events/temperature"
+            },
+            {
+              "tdLink": "http://localhost:8081/humiditysensor3",
+              "topicName": "HumiditySensor3/events/humidity"
+            },
+            {
+              "tdLink": "http://localhost:8081/occupancysensor3",
+              "topicName": "OccupancySensor3/events/occupancy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Floor 3",
+      "rooms": [
+        {
+          "name": "Elevator",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/elevatordoorsensor",
+              "topicName": "ElevatorDoorSensor/events/door"
+            }
+          ]
+        },
+        {
+          "name": "Server Room",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/humiditysensorserverroom",
+              "topicName": "HumiditySensorServerRoom/events/humidity"
+            },
+            {
+              "tdLink": "http://localhost:8081/temperaturesensorserverroom",
+              "topicName": "TemperatureSensorServerRoom/events/temperature"
+            }
+          ]
+        },
+        {
+          "name": "Meeting Room 2",
+          "things": [
+            {
+              "tdLink": "http://localhost:8081/humiditysensormeetingroom2",
+              "topicName": "HumiditySensorMeetingRoom2/events/humidity"
+            },
+            {
+              "tdLink": "http://localhost:8081/temperaturesensormeetingroom2",
+              "topicName": "TemperatureSensorMeetingRoom2/events/temperature"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "name": "Building"
+}

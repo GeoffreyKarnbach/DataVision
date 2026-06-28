@@ -1,0 +1,176 @@
+<div class="container my-5">
+  <h2>Virtual Data Fabric</h2>
+  <br />
+  <div class="alert alert-info mb-0 py-2 px-3 mb-2">
+    <strong>Info:</strong>
+    <span *ngIf="!virtualDataFabricRunning">
+      This will initiate and deploy a virtual representation of your data
+      infrastructure.
+    </span>
+    <span *ngIf="virtualDataFabricRunning">
+      This will stop and remove the current Virtual Data Fabric deployment.
+    </span>
+  </div>
+
+  <ng-container *ngIf="!isReadyToBuild">
+    <div
+      class="alert alert-warning d-flex align-items-center gap-2"
+      role="alert"
+    >
+      <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+      <div>
+        The data from the UNS has not been loaded yet, please send it using the
+        <a href="/node-red">"Export to Virtual Data Fabric"</a>
+        button in the NODE-RED page.
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="gap-3 align-items-start">
+    <div>
+      <button
+        *ngIf="!virtualDataFabricRunning"
+        class="btn btn-success d-flex align-items-center"
+        (click)="buildVirtualDataFabric()"
+        [disabled]="!isReadyToBuild"
+      >
+        <i class="bi bi-cpu-fill me-2"></i>
+        Build Virtual Data Fabric
+      </button>
+
+      <button
+        *ngIf="virtualDataFabricRunning"
+        class="btn btn-danger d-flex align-items-center"
+        (click)="resetVirtualDataFabric()"
+      >
+        <i class="bi bi-x-circle-fill me-2"></i>
+        Reset Virtual Data Fabric
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- This entire block is shown only when the VDF is running -->
+<div *ngIf="virtualDataFabricRunning">
+  <hr class="my-4" />
+  <h4 class="mb-3">Data Endpoints & Tools</h4>
+  <p class="text-muted">
+    Your Virtual Data Fabric is now active. The following services are
+    processing and serving your unified data.
+  </p>
+
+  <div class="row">
+    <!-- Card 1: Knowledge Graph (Neo4j) -->
+    <div class="col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title d-flex align-items-center">
+            <i class="bi bi-diagram-3-fill me-2"></i>
+            Knowledge Graph (Neo4j)
+          </h5>
+          <p class="card-text text-muted">
+            Stores the <strong>structural model</strong> of your system
+            (buildings, floors, rooms). This data is used by the
+            <strong>Graph Service</strong> to power the "Knowledge Graph"
+            visualization tab.
+          </p>
+          <div class="mt-auto">
+            <a
+              href="http://localhost:7474/browser/"
+              target="_blank"
+              class="btn btn-info d-flex align-items-center text-white"
+              rel="noopener noreferrer"
+            >
+              <i class="bi bi-box-arrow-up-right me-2"></i>
+              Open Neo4j Console
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Historical Metrics (Prometheus) -->
+    <div class="col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title d-flex align-items-center">
+            <i class="bi bi-bar-chart-line-fill me-2"></i>
+            Historical Metrics (Prometheus)
+          </h5>
+          <p class="card-text text-muted">
+            The <strong>time-series database</strong> that powers all plotting.
+            It scrapes data from the VDF and serves it to the
+            <strong>Plotting Service</strong> and <strong>Grafana</strong> for
+            visualization.
+          </p>
+          <div class="mt-auto">
+            <a
+              href="http://localhost:3000"
+              target="_blank"
+              class="btn btn-primary d-flex align-items-center"
+              rel="noopener noreferrer"
+            >
+              <i class="bi bi-box-arrow-up-right me-2"></i>
+              Open Grafana Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Live Data Feed (WebSockets) -->
+    <div class="col-md-12 col-lg-4 mb-3">
+      <div class="card h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title d-flex align-items-center">
+            <i class="bi bi-broadcast-pin me-2"></i>
+            Live Data Feed (WebSockets)
+          </h5>
+          <p class="card-text text-muted">
+            A real-time, <strong>push-based stream</strong> of all unified
+            sensor data, available for external clients or custom integrations.
+          </p>
+          <div class="mt-auto">
+            <p class="card-text">
+              Connect to <code>ws://localhost:8001</code>.
+            </p>
+            <details>
+              <summary>Sample Python Client</summary>
+              <pre class="bg-light p-2 rounded small mt-2">
+  <code>
+    import asyncio
+    import websockets
+
+    # Simple client to listen for all messages
+    async def test_websocket():
+        uri = "ws://localhost:8001"
+        async with websockets.connect(uri) as websocket:
+            print(f"✅ Connected to &#123;uri&#125;")
+            try:
+                while True:
+                    message = await websocket.recv()
+                    print(f"📩 Received: &#123;message&#125;")
+            except websockets.exceptions.ConnectionClosed as e:
+                print(f"❌ Connection closed: &#123;e&#125;")
+
+    if __name__ == "__main__":
+        asyncio.run(test_websocket())
+  </code>
+</pre>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="loading"
+  class="position-absolute w-100 h-100 top-0 start-0 d-flex justify-content-center align-items-center"
+  style="background: rgba(255, 255, 255, 0.7); z-index: 10"
+>
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "topics": [
+    "HumiditySensorConferenceRoom/events/humidity",
+    "HumiditySensor3/events/humidity",
+    "TemperatureSensor2/events/temperature",
+    "OccupancySensorMeetingRoom1/events/occupancy",
+    "HumiditySensor2/events/humidity",
+    "OccupancySensor3/events/occupancy",
+    "HumiditySensorMeetingRoom2/events/humidity",
+    "OccupancySensor2/events/occupancy",
+    "OccupancySensorHallway/events/occupancy",
+    "TemperatureSensorMeetingRoom2/events/temperature",
+    "TemperatureSensor1/events/temperature",
+    "LobbyLightSensor/events/light",
+    "TemperatureSensorServerRoom/events/temperature",
+    "OccupancySensorLobby/events/occupancy",
+    "TemperatureSensorConferenceRoom/events/temperature",
+    "EntranceDoorSensor/events/door",
+    "ElevatorDoorSensor/events/door",
+    "TemperatureSensorMeetingRoom1/events/temperature",
+    "HumiditySensorServerRoom/events/humidity",
+    "TemperatureSensor3/events/temperature",
+    "TemperatureSensorHallway/events/temperature"
+  ]
+}

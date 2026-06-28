@@ -1,0 +1,184 @@
+services:
+  uns:
+    build: ./uns
+    container_name: uns
+    volumes:
+      - ./uns:/app
+    command: python /app/main.py --load-sample-data
+    ports:
+      - "5001:5001"
+    networks:
+      - iot-net
+    environment:
+      - mode=prod
+    depends_on:
+      hivemq:
+        condition: service_started
+      node-red:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  virtual-data-fabric:
+    build: ./virtual-data-fabric
+    container_name: virtual-data-fabric
+    volumes:
+      - ./virtual-data-fabric:/app
+    command: python /app/main.py
+    ports:
+      - "5100:5100"
+      - "8000:8000"
+      - "8001:8001"
+    networks:
+      - iot-net
+    environment:
+      - mode=prod
+    depends_on:
+      - neo4j
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5100/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  graph-service:
+    build: ./graph-service
+    container_name: graph-service
+    volumes:
+      - ./graph-service:/app
+    command: python /app/main.py
+    ports:
+      - "5200:5200"
+    networks:
+      - iot-net
+    environment:
+      - mode=prod
+    depends_on:
+      - neo4j
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5200/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  plotting-service:
+    build: ./plotting-service
+    container_name: plotting-service
+    volumes:
+      - ./plotting-service:/app
+    command: python /app/main.py
+    ports:
+      - "5300:5300"
+    networks:
+      - iot-net
+    environment:
+      - mode=prod
+    depends_on:
+      - prometheus
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5300/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j_
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    networks:
+      - iot-net
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - iot-net
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "4200:80"
+    networks:
+      - iot-net
+    environment:
+      - mode=prod
+    depends_on:
+      uns:
+        condition: service_healthy
+      virtual-data-fabric:
+        condition: service_healthy
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - iot-net
+    volumes:
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/dashboards:/etc/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+  hivemq:
+    image: hivemq/hivemq4
+    container_name: hivemq
+    ports:
+      - "1883:1883"
+      - "8080:8080"
+    networks:
+      - iot-net
+    volumes:
+      - ./hivemq-data:/opt/hivemq/data
+
+  mock-things:
+    build: ./mock-data/things
+    container_name: mock-things
+    ports:
+      - "8081:8081"
+    networks:
+      - iot-net
+    environment:
+      - mode=prod
+    depends_on:
+      - hivemq
+
+  node-red:
+    image: nodered/node-red
+    container_name: node-red
+    ports:
+      - "1880:1880"
+    networks:
+      - iot-net
+    volumes:
+      - ./node-red-data:/data
+    environment:
+      - TZ=Europe/Vienna
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1880"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+networks:
+  iot-net:
+    driver: bridge

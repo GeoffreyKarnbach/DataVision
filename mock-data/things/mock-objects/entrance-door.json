@@ -1,0 +1,9 @@
+{
+  "title": "EntranceDoorSensor",
+  "description": "Main entrance door sensor",
+  "eventTopic": "door",
+  "data": {
+    "type": "boolean",
+    "title": "Door Open"
+  }
+}

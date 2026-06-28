@@ -1,0 +1,11 @@
+{
+  "title": "HumiditySensorConferenceRoom",
+  "description": "Conference Room humidity sensor",
+  "eventTopic": "humidity",
+  "data": {
+    "type": "number",
+    "title": "Humidity",
+    "minimum": 30,
+    "maximum": 70
+  }
+}

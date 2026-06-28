@@ -1,0 +1,177 @@
+{
+  "building": {
+    "floors": [
+      {
+        "name": "Floor 1",
+        "rooms": [
+          {
+            "name": "Conference Room",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/humiditysensorconferenceroom",
+                "topicName": "building/floor_1/conference_room/humidity",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/temperaturesensorconferenceroom",
+                "topicName": "building/floor_1/conference_room/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          },
+          {
+            "name": "Lobby",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/lobbylightsensor",
+                "topicName": "building/floor_1/lobby/light",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/occupancysensorlobby",
+                "topicName": "building/floor_1/lobby/occupancy",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          },
+          {
+            "name": "Meeting Room 1",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/temperaturesensormeetingroom1",
+                "topicName": "building/floor_1/meeting_room_1/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/temperaturesensor1",
+                "topicName": "building/floor_1/meeting_room_1/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/occupancysensormeetingroom1",
+                "topicName": "building/floor_1/meeting_room_1/occupancy",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          },
+          {
+            "name": "Entrance",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/entrancedoorsensor",
+                "topicName": "building/floor_1/entrance/door",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Floor 2",
+        "rooms": [
+          {
+            "name": "Hallway",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/occupancysensorhallway",
+                "topicName": "building/floor_2/hallway/occupancy",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/temperaturesensorhallway",
+                "topicName": "building/floor_2/hallway/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          },
+          {
+            "name": "Room 2",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/occupancysensor2",
+                "topicName": "building/floor_2/room_2/occupancy",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/humiditysensor2",
+                "topicName": "building/floor_2/room_2/humidity",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/temperaturesensor2",
+                "topicName": "building/floor_2/room_2/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          },
+          {
+            "name": "Room 3",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/temperaturesensor3",
+                "topicName": "building/floor_2/room_3/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/humiditysensor3",
+                "topicName": "building/floor_2/room_3/humidity",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/occupancysensor3",
+                "topicName": "building/floor_2/room_3/occupancy",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Floor 3",
+        "rooms": [
+          {
+            "name": "Elevator",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/elevatordoorsensor",
+                "topicName": "building/floor_3/elevator/door",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          },
+          {
+            "name": "Server Room",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/humiditysensorserverroom",
+                "topicName": "building/floor_3/server_room/humidity",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/temperaturesensorserverroom",
+                "topicName": "building/floor_3/server_room/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          },
+          {
+            "name": "Meeting Room 2",
+            "things": [
+              {
+                "tdLink": "http://localhost:8081/humiditysensormeetingroom2",
+                "topicName": "building/floor_3/meeting_room_2/humidity",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              },
+              {
+                "tdLink": "http://localhost:8081/temperaturesensormeetingroom2",
+                "topicName": "building/floor_3/meeting_room_2/temperature",
+                "hiveMqBrokerUrl": "mqtt://localhost:1883"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "name": "Building"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": "TemperatureSensor1",
+  "description": "Room 101 temperature sensor",
+  "eventTopic": "temperature",
+  "data": {
+    "type": "number",
+    "title": "Temperature",
+    "minimum": 18,
+    "maximum": 30
+  }
+}

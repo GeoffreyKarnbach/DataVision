@@ -1,0 +1,14 @@
+{
+  "dev": {
+    "hiveMqUrl": "mqtt://hivemq:1883",
+    "nodeRedUrl": "http://localhost:1880",
+    "tdLink": "http://localhost:8081/",
+    "virtualDataFabricUrl": "http://localhost:5100/"
+  },
+  "prod": {
+    "hiveMqUrl": "mqtt://hivemq:1883",
+    "nodeRedUrl": "http://node-red:1880",
+    "tdLink": "http://mock-things:8081/",
+    "virtualDataFabricUrl": "http://virtual-data-fabric:5100/"
+  }
+}

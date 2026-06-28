@@ -1,0 +1,414 @@
+{
+  "buildingName": "Sample Smart Building",
+  "floors": [
+    {
+      "floorId": "floor-1",
+      "name": "Ground Floor",
+      "rooms": [
+        {
+          "roomId": "lobby",
+          "name": "Lobby",
+          "sensors": [
+            { 
+              "name": "LobbyLightSensor", 
+              "tdUrl": "http://localhost:8081/lobbylightsensor", 
+              "topicUrl": "LobbyLightSensor/events/light",
+              "manufacturer": "Philips",
+              "model": "Hue Light Sensor v2",
+              "installationDate": "2023-03-15",
+              "energyRating": "A",
+              "maintenanceSchedule": "Every 12 months"
+            },
+            { 
+              "name": "OccupancySensorLobby", 
+              "tdUrl": "http://localhost:8081/occupancysensorlobby", 
+              "topicUrl": "OccupancySensorLobby/events/occupancy",
+              "manufacturer": "Honeywell",
+              "model": "HOS-101",
+              "installationDate": "2023-04-01",
+              "maintenanceSchedule": "Every 6 months"
+            }
+          ],
+          "dimensions": {
+            "length": 10,
+            "width": 8,
+            "height": 4
+          },
+          "floorType": "Tile",
+          "floorMaterial": "Ceramic",
+          "wallMaterial": "Drywall",
+          "ceilingMaterial": "Acoustic Tiles",
+          "windows": 4,
+          "doors": 1
+        },
+        {
+          "roomId": "entrance",
+          "name": "Entrance",
+          "sensors": [
+            { 
+              "name": "EntranceDoorSensor", 
+              "tdUrl": "http://localhost:8081/entrancedoorsensor", 
+              "topicUrl": "EntranceDoorSensor/events/door",
+              "manufacturer": "Schlage",
+              "model": "Connect Smart Lock",
+              "installationDate": "2023-02-10",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 18 months"
+            }
+          ],
+          "dimensions": {
+            "length": 5,
+            "width": 6,
+            "height": 4
+          },
+          "floorType": "Wooden Planks",
+          "floorMaterial": "Oak",
+          "wallMaterial": "Drywall",
+          "ceilingMaterial": "Concrete",
+          "windows": 2,
+          "doors": 1
+        },
+        {
+          "roomId": "elevator",
+          "name": "Elevator",
+          "sensors": [
+            { 
+              "name": "ElevatorDoorSensor", 
+              "tdUrl": "http://localhost:8081/elevatordoorsensor", 
+              "topicUrl": "ElevatorDoorSensor/events/door",
+              "manufacturer": "Otis",
+              "model": "Elevator 1000",
+              "installationDate": "2023-01-25",
+              "maintenanceSchedule": "Every 6 months"
+            }
+          ],
+          "dimensions": {
+            "length": 3,
+            "width": 3,
+            "height": 5
+          },
+          "floorType": "Metal",
+          "floorMaterial": "Steel",
+          "wallMaterial": "Glass",
+          "ceilingMaterial": "Metal",
+          "windows": 0,
+          "doors": 1
+        }
+      ]
+    },
+    {
+      "floorId": "floor-2",
+      "name": "Main Office Floor",
+      "rooms": [
+        {
+          "roomId": "meeting-room1",
+          "name": "Meeting Room 1",
+          "sensors": [
+            { 
+              "name": "OccupancySensorMeetingRoom1", 
+              "tdUrl": "http://localhost:8081/occupancysensormeetingroom1", 
+              "topicUrl": "OccupancySensorMeetingRoom1/events/occupancy",
+              "manufacturer": "Siemens",
+              "model": "SOM-202",
+              "installationDate": "2023-03-20",
+              "maintenanceSchedule": "Annually"
+            },
+            { 
+              "name": "TemperatureSensorMeetingRoom1", 
+              "tdUrl": "http://localhost:8081/temperaturesensormeetingroom1", 
+              "topicUrl": "TemperatureSensorMeetingRoom1/events/temperature",
+              "manufacturer": "Nest",
+              "model": "Nest Thermostat v3",
+              "installationDate": "2023-03-22",
+              "energyRating": "A",
+              "maintenanceSchedule": "Every 24 months"
+            }
+          ],
+          "dimensions": {
+            "length": 8,
+            "width": 7,
+            "height": 4
+          },
+          "floorType": "Carpet",
+          "floorMaterial": "Nylon",
+          "wallMaterial": "Plasterboard",
+          "ceilingMaterial": "Suspended Tiles",
+          "windows": 3,
+          "doors": 1
+        },
+        {
+          "roomId": "meeting-room2",
+          "name": "Meeting Room 2",
+          "sensors": [
+            { 
+              "name": "TemperatureSensorMeetingRoom2", 
+              "tdUrl": "http://localhost:8081/temperaturesensormeetingroom2", 
+              "topicUrl": "TemperatureSensorMeetingRoom2/events/temperature",
+              "manufacturer": "Honeywell",
+              "model": "T87N2002",
+              "installationDate": "2023-03-10",
+              "energyRating": "A",
+              "maintenanceSchedule": "Every 12 months"
+            },
+            { 
+              "name": "HumiditySensorMeetingRoom2", 
+              "tdUrl": "http://localhost:8081/humiditysensormeetingroom2", 
+              "topicUrl": "HumiditySensorMeetingRoom2/events/humidity",
+              "manufacturer": "Xiaomi",
+              "model": "Mi Humidity Sensor",
+              "installationDate": "2023-03-12",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 18 months"
+            }
+          ],
+          "dimensions": {
+            "length": 9,
+            "width": 8,
+            "height": 4
+          },
+          "floorType": "Hardwood",
+          "floorMaterial": "Maple",
+          "wallMaterial": "Plasterboard",
+          "ceilingMaterial": "Metal",
+          "windows": 2,
+          "doors": 1
+        },
+        {
+          "roomId": "conference-room",
+          "name": "Conference Room",
+          "sensors": [
+            { 
+              "name": "TemperatureSensorConferenceRoom", 
+              "tdUrl": "http://localhost:8081/temperaturesensorconferenceroom", 
+              "topicUrl": "TemperatureSensorConferenceRoom/events/temperature",
+              "manufacturer": "Nest",
+              "model": "Nest Thermostat v3",
+              "installationDate": "2023-03-25",
+              "energyRating": "A",
+              "maintenanceSchedule": "Every 24 months"
+            },
+            { 
+              "name": "HumiditySensorConferenceRoom", 
+              "tdUrl": "http://localhost:8081/humiditysensorconferenceroom", 
+              "topicUrl": "HumiditySensorConferenceRoom/events/humidity",
+              "manufacturer": "Xiaomi",
+              "model": "Mi Humidity Sensor",
+              "installationDate": "2023-03-27",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 18 months"
+            }
+          ],
+          "dimensions": {
+            "length": 12,
+            "width": 10,
+            "height": 5
+          },
+          "floorType": "Carpet",
+          "floorMaterial": "Wool",
+          "wallMaterial": "Drywall",
+          "ceilingMaterial": "Acoustic Tiles",
+          "windows": 5,
+          "doors": 2
+        },
+        {
+          "roomId": "hallway",
+          "name": "Hallway",
+          "sensors": [
+            { 
+              "name": "TemperatureSensorHallway", 
+              "tdUrl": "http://localhost:8081/temperaturesensorhallway", 
+              "topicUrl": "TemperatureSensorHallway/events/temperature",
+              "manufacturer": "Honeywell",
+              "model": "T87N2002",
+              "installationDate": "2023-02-15",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 12 months"
+            },
+            { 
+              "name": "OccupancySensorHallway", 
+              "tdUrl": "http://localhost:8081/occupancysensorhallway", 
+              "topicUrl": "OccupancySensorHallway/events/occupancy",
+              "manufacturer": "Honeywell",
+              "model": "HOS-101",
+              "installationDate": "2023-02-20",
+              "maintenanceSchedule": "Every 6 months"
+            }
+          ],
+          "dimensions": {
+            "length": 15,
+            "width": 3,
+            "height": 4
+          },
+          "floorType": "Tile",
+          "floorMaterial": "Granite",
+          "wallMaterial": "Concrete",
+          "ceilingMaterial": "Plaster",
+          "windows": 1,
+          "doors": 1
+        }
+      ]
+    },
+    {
+      "floorId": "floor-3",
+      "name": "Upper Floor",
+      "rooms": [
+        {
+          "roomId": "room101",
+          "name": "Room 101",
+          "sensors": [
+            { 
+              "name": "TemperatureSensor1", 
+              "tdUrl": "http://localhost:8081/temperaturesensor1", 
+              "topicUrl": "TemperatureSensor1/events/temperature",
+              "manufacturer": "Nest",
+              "model": "Nest Thermostat v2",
+              "installationDate": "2023-02-28",
+              "energyRating": "A",
+              "maintenanceSchedule": "Every 24 months"
+            }
+          ],
+          "dimensions": {
+            "length": 10,
+            "width": 10,
+            "height": 4
+          },
+          "floorType": "Wood",
+          "floorMaterial": "Ash",
+          "wallMaterial": "Painted Concrete",
+          "ceilingMaterial": "Suspended Acoustic Panels",
+          "windows": 2,
+          "doors": 1
+        },
+        {
+          "roomId": "room102",
+          "name": "Room 102",
+          "sensors": [
+            { 
+              "name": "TemperatureSensor2", 
+              "tdUrl": "http://localhost:8081/temperaturesensor2", 
+              "topicUrl": "TemperatureSensor2/events/temperature",
+              "manufacturer": "Honeywell",
+              "model": "T87N2002",
+              "installationDate": "2023-03-10",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 12 months"
+            },
+            { 
+              "name": "HumiditySensor2", 
+              "tdUrl": "http://localhost:8081/humiditysensor2", 
+              "topicUrl": "HumiditySensor2/events/humidity",
+              "manufacturer": "Xiaomi",
+              "model": "Mi Humidity Sensor",
+              "installationDate": "2023-03-15",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 18 months"
+            },
+            { 
+              "name": "OccupancySensor2", 
+              "tdUrl": "http://localhost:8081/occupancysensor2", 
+              "topicUrl": "OccupancySensor2/events/occupancy",
+              "manufacturer": "Honeywell",
+              "model": "HOS-202",
+              "installationDate": "2023-03-20",
+              "maintenanceSchedule": "Every 6 months"
+            }
+          ],
+          "dimensions": {
+            "length": 9,
+            "width": 8,
+            "height": 4
+          },
+          "floorType": "Vinyl",
+          "floorMaterial": "Polyvinyl Chloride",
+          "wallMaterial": "Plaster",
+          "ceilingMaterial": "Fiberglass",
+          "windows": 2,
+          "doors": 1
+        },
+        {
+          "roomId": "room103",
+          "name": "Room 103",
+          "sensors": [
+            { 
+              "name": "TemperatureSensor3", 
+              "tdUrl": "http://localhost:8081/temperaturesensor3", 
+              "topicUrl": "TemperatureSensor3/events/temperature",
+              "manufacturer": "Honeywell",
+              "model": "T87N2002",
+              "installationDate": "2023-03-05",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 12 months"
+            },
+            { 
+              "name": "HumiditySensor3", 
+              "tdUrl": "http://localhost:8081/humiditysensor3", 
+              "topicUrl": "HumiditySensor3/events/humidity",
+              "manufacturer": "Xiaomi",
+              "model": "Mi Humidity Sensor",
+              "installationDate": "2023-03-07",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 18 months"
+            },
+            { 
+              "name": "OccupancySensor3", 
+              "tdUrl": "http://localhost:8081/occupancysensor3", 
+              "topicUrl": "OccupancySensor3/events/occupancy",
+              "manufacturer": "Honeywell",
+              "model": "HOS-202",
+              "installationDate": "2023-03-10",
+              "maintenanceSchedule": "Every 6 months"
+            }
+          ],
+          "dimensions": {
+            "length": 8,
+            "width": 6,
+            "height": 4
+          },
+          "floorType": "Laminate",
+          "floorMaterial": "HDF (High-Density Fiberboard)",
+          "wallMaterial": "Plasterboard",
+          "ceilingMaterial": "Suspended Tiles",
+          "windows": 2,
+          "doors": 1
+        },
+        {
+          "roomId": "server-room",
+          "name": "Server Room",
+          "sensors": [
+            { 
+              "name": "TemperatureSensorServerRoom", 
+              "tdUrl": "http://localhost:8081/temperaturesensorserverroom", 
+              "topicUrl": "TemperatureSensorServerRoom/events/temperature",
+              "manufacturer": "Nest",
+              "model": "Nest Thermostat v3",
+              "installationDate": "2023-02-01",
+              "energyRating": "A",
+              "maintenanceSchedule": "Every 24 months"
+            },
+            { 
+              "name": "HumiditySensorServerRoom", 
+              "tdUrl": "http://localhost:8081/humiditysensorserverroom", 
+              "topicUrl": "HumiditySensorServerRoom/events/humidity",
+              "manufacturer": "Xiaomi",
+              "model": "Mi Humidity Sensor",
+              "installationDate": "2023-02-05",
+              "energyRating": "B",
+              "maintenanceSchedule": "Every 18 months"
+            }
+          ],
+          "dimensions": {
+            "length": 12,
+            "width": 10,
+            "height": 5
+          },
+          "floorType": "Anti-static Tiles",
+          "floorMaterial": "Rubber",
+          "wallMaterial": "Concrete",
+          "ceilingMaterial": "Acoustic Tiles",
+          "windows": 1,
+          "doors": 1
+        }
+      ]
+    }
+  ]
+}

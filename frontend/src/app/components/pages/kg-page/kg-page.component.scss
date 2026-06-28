@@ -1,0 +1,22 @@
+::ng-deep ngx-graph svg {
+  background-color: #f0f0f0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.chart-container {
+  height: 100%;
+  width: 100%;
+}
+
+.graph-wrapper {
+  height: 90vh; /* 90% of the viewport height */
+  width: 100%;
+  background: #ccc; /* or whatever background you want */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

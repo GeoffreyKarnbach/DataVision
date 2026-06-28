@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    Node <strong>{{ nodeName }}</strong
+    >({{ nodeId }})
+  </h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="dismiss()"
+  ></button>
+</div>
+
+<div class="modal-body">
+  <div class="form-check mb-3">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="scriptEnabledCheck"
+      [(ngModel)]="nodeScriptDto.enabled"
+    />
+    <label class="form-check-label" for="scriptEnabledCheck">
+      Enable this script
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="scriptContent" class="form-label">Function Script:</label>
+    <textarea
+      class="form-control"
+      id="scriptContent"
+      rows="10"
+      [(ngModel)]="nodeScriptDto.scriptContent"
+    ></textarea>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="dismiss()">
+    Cancel
+  </button>
+  <button type="button" class="btn btn-primary" (click)="save()">
+    Save Changes
+  </button>
+</div>

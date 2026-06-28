@@ -4,6 +4,10 @@ An extensible, microservices-based platform designed to solve a common, complex 
 
 This project provides a complete end-to-end workflow for modeling a physical environment, unifying disparate data sources, deploying a live data pipeline, and visualizing the results in a powerful, interactive interface.
 
+![Live DataVision dashboard showing the knowledge graph and live sensor plots](images/live-dashboard-2.png)
+
+_A live system view combining the generated knowledge graph with real-time sensor plots._
+
 ## System Architecture
 
 The platform's architecture is fundamentally divided into a **Design-Time Environment** (where you model your system) and a **Run-Time Environment** (where the live data pipeline is executed). This separation of concerns ensures a modular, resilient, and understandable system.
@@ -79,13 +83,25 @@ Once all services are running, you can interact with the platform. The entire wo
 
     Open your web browser and navigate to: **[http://localhost:4200](http://localhost:4200)**
 
+    ![DataVision workflow overview](images/landing-1.png)
+
+    _The start page introduces the four-step workflow: register, model, deploy, and visualize._
+
 2.  **Register Your Things**
 
     Navigate to the **Things List** tab. This is where you register the raw data sources. The system is pre-loaded with sample data, but you can add or remove "Things" here to define the inputs for your pipeline.
 
+    ![Things registration page](images/things-list.png)
+
+    _Raw IoT data sources are registered with their Thing Description links and MQTT topics._
+
 3.  **Model Your Environment**
 
     Navigate to the **Building Structure** tab. Here, you can visually construct a hierarchy of buildings, floors, and rooms. Within each room, use the **+ Thing** button to assign the devices you registered. This is where you give your raw data its physical context. Save your changes when you are done.
+
+    ![Building structure editor](images/building-structure.png)
+
+    _The building model gives each data stream spatial and semantic context._
 
 4.  **Deploy the Pipeline**
 
@@ -93,9 +109,21 @@ Once all services are running, you can interact with the platform. The entire wo
     a) Go to the **Node Red Management** tab and click **Generate Node-RED**. This instructs the Unified Namespace Service to create and deploy the data transformation flows.
     b) On the same tab, click **Export to Virtual Data Fabric**. Then, navigate to the **Virtual Data Fabric** tab and click the final **Build Virtual Data Fabric** button. This activates the run-time engine.
 
+    ![Node-RED management page](images/node-red-management.png)
+
+    _The generated pipeline can be inspected, edited, and exported from the management view._
+
+    ![Generated Node-RED flow](images/node-red.png)
+
+    _Node-RED executes the generated transformations from raw topics into the unified namespace._
+
 5.  **Visualize the Result**
 
     Navigate to the **Knowledge Graph** tab. You will now see a complete, interactive visualization of your system. Click on any node in the graph (e.g., a Room or a Floor) to see live-updating plots of all the sensor data associated with it.
+
+    ![Live dashboard with knowledge graph and plots](images/live-dashboard-1.png)
+
+    _The final runtime view links the knowledge graph to live Prometheus-backed sensor charts._
 
     Congratulations, you have a fully operational data fabric!
 

@@ -3,6 +3,7 @@ from flask_cors import CORS
 import json
 from neo4j_handler import GraphService
 import os
+import atexit
 
 app = Flask(__name__)
 CORS(app)
@@ -22,10 +23,6 @@ def health_check():
     print("Health check endpoint called.")
     return jsonify({"status": "UP"}), 200
 
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    neo4j_handler.close()
-
 if __name__ == "__main__":
     mode = os.getenv("mode", "dev")
     if mode == "dev":
@@ -38,5 +35,6 @@ if __name__ == "__main__":
         neo4j_uri = os.getenv("neo4j_prod_uri", "bolt://neo4j_:7687")
 
     neo4j_handler = GraphService(neo4j_uri, neo4j_user, neo4j_password)
+    atexit.register(neo4j_handler.close)
 
-    app.run(host="0.0.0.0", port=5200, debug=True)
+    app.run(host="0.0.0.0", port=5200, debug=False)
